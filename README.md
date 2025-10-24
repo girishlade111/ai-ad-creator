@@ -10,18 +10,6 @@
 This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
 Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
 
-## Deployment
-
-Your project is live at:
-
-**[https://vercel.com/pijako9357-1154s-projects/v0-ai-ad-creator](https://vercel.com/pijako9357-1154s-projects/v0-ai-ad-creator)**
-
-## Build your app
-
-Continue building your app on:
-
-**[https://v0.app/chat/projects/9vGdc80VeAS](https://v0.app/chat/projects/9vGdc80VeAS)**
-
 ## How It Works
 
 1. Create and modify your project using [v0.app](https://v0.app)
