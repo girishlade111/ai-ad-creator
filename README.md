@@ -1,18 +1,72 @@
 # AI Ad Creator
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+An AI-powered advertising creative studio built with Next.js and v0. Generate scroll-stopping ad images and videos from text prompts using fal.ai models — with storyboards, moment images, and asset uploads in one dashboard.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/pijako9357-1154s-projects/v0-ai-ad-creator)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/9vGdc80VeAS)
+**Live:** https://v0-ai-ad-creator-vert-nine.vercel.app
 
-## Overview
+## Features
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+- **AI image generation** — Create ad creatives from text prompts (`/api/generate-image`).
+- **AI video generation** — Produce short ad videos (`/api/generate-video`).
+- **Storyboards** — Generate multi-frame storyboard sequences for campaign planning.
+- **Moment images** — Capture key "moments" as standalone ad assets.
+- **Asset upload** — Upload your own images to remix into ads.
+- **Modern studio UI** — Radix UI components, Tailwind styling, responsive layout.
 
-## How It Works
+## Tech stack
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+- **Framework:** Next.js (App Router), React, TypeScript
+- **AI APIs:** fal.ai (`@fal-ai/client`, `@fal-ai/serverless-client`) for image + video generation
+- **UI:** Radix UI primitives, Tailwind CSS, lucide-react icons, react-hook-form + zod
+- **Deploy:** Vercel (auto-synced with v0.app)
+
+## Quick start
+
+**Prerequisites:** Node.js 20+, a [fal.ai](https://fal.ai) API key.
+
+```bash
+# 1. Clone and install
+git clone https://github.com/girishlade111/ai-ad-creator.git
+cd ai-ad-creator
+npm install
+
+# 2. Configure environment
+cp .env.example .env   # or create .env
+# Add: FAL_KEY=your_fal_ai_api_key
+
+# 3. Run locally
+npm run dev
+```
+
+Open http://localhost:3000 and start generating ads.
+
+## Project structure
+
+```
+app/
+  api/
+    generate-image/        # POST: text-to-image ad generation
+    generate-video/        # POST: text/image-to-video ad generation
+    generate-storyboard/   # POST: multi-frame storyboard generation
+    generate-moment-image/ # POST: key-moment image generation
+    upload-image/          # POST: user asset uploads
+  page.tsx                 # Studio dashboard
+components/                # UI components (Radix/shadcn-style)
+lib/                       # fal.ai client setup, helpers
+public/                    # Static assets
+styles/                    # Global styles
+```
+
+## Environment variables
+
+| Variable | Purpose |
+|---|---|
+| `FAL_KEY` | fal.ai API key (required for all generation endpoints) |
+
+## Deploy notes
+
+Deployed on **Vercel** (auto-synced from v0.app). To redeploy elsewhere: push to a connected repo or run `vercel --prod`. Set `FAL_KEY` in the host's environment variables. This app needs server-side API routes, so it must run on a Node server/edge runtime — not statically exportable.
+
+---
+
+Built by Girish Lade — https://ladestack.in
